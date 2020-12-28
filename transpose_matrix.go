@@ -21,5 +21,6 @@ func main() {
 			matrix[i][j] = arr[j][i]
 		}
 	}
+
 	fmt.Println(matrix)
 }
