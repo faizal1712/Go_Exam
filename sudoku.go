@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var arr = [9][9]int{
+	var arr = [][]int{
 		{8, 2, 7, 1, 5, 4, 3, 9, 6},
 		{9, 6, 5, 3, 2, 7, 1, 4, 8},
 		{3, 4, 1, 6, 8, 9, 7, 5, 2},
@@ -14,55 +14,54 @@ func main() {
 		{1, 5, 4, 7, 9, 6, 8, 2, 3},
 		{2, 3, 9, 8, 4, 1, 5, 6, 7},
 	}
-	// for i := 0; i < 9; i++ {
-	// 	// for j := 0; j < 9; j++ {
-	// 	// 	fmt.Print("Enter arr[", i, "][", j, "] sudoku value: ")
-	// 	// 	fmt.Scanf(&arr[i][j])
-	// 	// }
-	// 	fmt.Print("Enter value: ")
-	// 	fmt.Scanf("%d %d %d %d %d %d %d %d %d\n", &arr[i][0], &arr[i][1], &arr[i][2], &arr[i][3], &arr[i][4], &arr[i][5], &arr[i][6], &arr[i][7], &arr[i][8])
-	// }
-	// fmt.Println("Entered sudoku is: ")
-	// for i := 0; i < 9; i++ {
-	// 	for j := 0; j < 9; j++ {
-	// 		fmt.Print(arr[i][j], "	")
-	// 	}
-	// 	fmt.Println()
-	// }
-	for i := 0; i < 9; i++ {
-		if !checkLine(arr[i]) {
-			fmt.Println("This solution is wrong ! ")
-			return
+
+	if !rowscheck(arr) || !columnscheck(arr) || !submatrixcheck(arr) {
+		fmt.Println("This solution is wrong ! ")
+		return
+	}
+	fmt.Println("This solution is true !")
+}
+
+func checkLine(arr []int) bool {
+	dict := make(map[int]int)
+	for _, num := range arr {
+		dict[num] = dict[num] + 1
+	}
+	for i := 1; i < 10; i++ {
+		if dict[i] != 1 {
+			return false
 		}
 	}
+	return true
+}
+
+func rowscheck(arr [][]int) bool {
 	for i := 0; i < 9; i++ {
-		var temp [9]int
+		if !checkLine(arr[i]) {
+			return false
+		}
+	}
+	return true
+}
+
+func columnscheck(arr [][]int) bool {
+	for i := 0; i < 9; i++ {
+		temp := make([]int, 9)
 		for j := 0; j < 9; j++ {
 			temp[j] = arr[j][i]
 		}
 		if !checkLine(temp) {
-			fmt.Println("This solution is wrong ! ")
-			return
+			return false
 		}
 	}
-	var temp [9]int
-	// for i := 0; i < 3; i++ {
-	// 	for j := 0; j < 3; j++ {
-	// 		for k := 0; k < 3; k++ {
-	// 			for l := 0; l < 3; l++ {
-	// 				temp[3*k+l] = arr[3*i+k][3*j+l]
-	// 			}
-	// 		}
-	// 		if !checkLine(temp) {
-	// 			fmt.Println("This solution is wrong ! ")
-	// 			return
-	// 		}
-	// 	}
-	// }
+	return true
+}
+
+func submatrixcheck(arr [][]int) bool {
+	temp := make([]int, 9)
 	i, j := 0, 0
 	for f := 0; f < 9; f++ {
 		j = 3 * (f % 3)
-		// fmt.Println(i, j, f)
 		temp[0] = arr[i+0][j+0]
 		temp[1] = arr[i+0][j+1]
 		temp[2] = arr[i+0][j+2]
@@ -72,28 +71,11 @@ func main() {
 		temp[6] = arr[i+2][j+0]
 		temp[7] = arr[i+2][j+1]
 		temp[8] = arr[i+2][j+2]
-		// fmt.Println(temp)
 		if !checkLine(temp) {
-			fmt.Println("This solution is wrong ! ")
-			return
+			return false
 		}
 		if f%3 == 2 {
 			i = i + 3
-		}
-	}
-	fmt.Println("This solution is true !")
-}
-
-func checkLine(arr [9]int) bool {
-	// fmt.Println(arr)
-	dict := make(map[int]int)
-	for _, num := range arr {
-		dict[num] = dict[num] + 1
-	}
-	// fmt.Println(dict)
-	for i := 1; i < 10; i++ {
-		if dict[i] != 1 {
-			return false
 		}
 	}
 	return true
