@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	arr := []int{3, 2, 3, 0, 1, 1, 1}
+	arr := []int{3, 2, 1, 0, 1, 1, 1}
 	fmt.Println("Given array is:", arr)
 	jum := jump(arr)
 	if jum != math.MaxInt64 && jum != math.MinInt64 {
