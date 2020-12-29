@@ -46,17 +46,39 @@ func main() {
 		}
 	}
 	var temp [9]int
-	for i := 0; i < 3; i++ {
-		for j := 0; j < 3; j++ {
-			for k := 0; k < 3; k++ {
-				for l := 0; l < 3; l++ {
-					temp[3*k+l] = arr[3*i+k][3*j+l]
-				}
-			}
-			if !checkLine(temp) {
-				fmt.Println("This solution is wrong ! ")
-				return
-			}
+	// for i := 0; i < 3; i++ {
+	// 	for j := 0; j < 3; j++ {
+	// 		for k := 0; k < 3; k++ {
+	// 			for l := 0; l < 3; l++ {
+	// 				temp[3*k+l] = arr[3*i+k][3*j+l]
+	// 			}
+	// 		}
+	// 		if !checkLine(temp) {
+	// 			fmt.Println("This solution is wrong ! ")
+	// 			return
+	// 		}
+	// 	}
+	// }
+	i, j := 0, 0
+	for f := 0; f < 9; f++ {
+		j = 3 * (f % 3)
+		// fmt.Println(i, j, f)
+		temp[0] = arr[i+0][j+0]
+		temp[1] = arr[i+0][j+1]
+		temp[2] = arr[i+0][j+2]
+		temp[3] = arr[i+1][j+0]
+		temp[4] = arr[i+1][j+1]
+		temp[5] = arr[i+1][j+2]
+		temp[6] = arr[i+2][j+0]
+		temp[7] = arr[i+2][j+1]
+		temp[8] = arr[i+2][j+2]
+		// fmt.Println(temp)
+		if !checkLine(temp) {
+			fmt.Println("This solution is wrong ! ")
+			return
+		}
+		if f%3 == 2 {
+			i = i + 3
 		}
 	}
 	fmt.Println("This solution is true !")
