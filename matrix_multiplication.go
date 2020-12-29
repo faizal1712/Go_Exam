@@ -12,10 +12,15 @@ func main() {
 		{1, 2, 3},
 		{4, 5, 6},
 	}
+
 	if len(a[0]) != len(b) {
 		fmt.Println("For a*c multiplication, given matrices should be in form of a*b and b*c")
 		return
 	}
+	fmt.Println(multiplicationMatrix(a, b))
+}
+
+func multiplicationMatrix(a, b [][]int) [][]int {
 	matrix := make([][]int, len(a))
 	for i := 0; i < len(a); i++ {
 		matrix[i] = make([]int, len(b[0]))
@@ -27,5 +32,5 @@ func main() {
 			}
 		}
 	}
-	fmt.Println(matrix)
+	return matrix
 }
