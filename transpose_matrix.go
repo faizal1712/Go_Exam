@@ -9,7 +9,10 @@ func main() {
 		{7, 8, 9},
 		{10, 11, 12},
 	}
+	fmt.Println(transposeMatrix(arr))
+}
 
+func transposeMatrix(arr [][]int) [][]int {
 	matrix := make([][]int, len(arr[0]))
 	for i := 0; i < len(arr[0]); i++ {
 		matrix[i] = make([]int, len(arr))
@@ -17,10 +20,8 @@ func main() {
 
 	for i := 0; i < len(arr[0]); i++ {
 		for j := 0; j < len(arr); j++ {
-			// fmt.Println(arr[j][i])
 			matrix[i][j] = arr[j][i]
 		}
 	}
-
-	fmt.Println(matrix)
+	return matrix
 }
