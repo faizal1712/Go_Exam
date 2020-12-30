@@ -12,8 +12,9 @@ func main() {
 		{1, 2, 3},
 		{4, 5, 6},
 	}
-
-	if len(a[0]) != len(b) {
+	a0_length := len(a[0])
+	b_length := len(b)
+	if a0_length != b_length {
 		fmt.Println("For a*c multiplication, given matrices should be in form of a*b and b*c")
 		return
 	}
@@ -21,13 +22,16 @@ func main() {
 }
 
 func multiplicationMatrix(a, b [][]int) [][]int {
-	matrix := make([][]int, len(a))
-	for i := 0; i < len(a); i++ {
-		matrix[i] = make([]int, len(b[0]))
+	a_length := len(a)
+	a0_length := len(a[0])
+	b0_length := len(b[0])
+	matrix := make([][]int, a_length)
+	for i := 0; i < a_length; i++ {
+		matrix[i] = make([]int, b0_length)
 	}
-	for i := 0; i < len(a); i++ {
-		for j := 0; j < len(b[0]); j++ {
-			for k := 0; k < len(a[0]); k++ {
+	for i := 0; i < a_length; i++ {
+		for j := 0; j < b0_length; j++ {
+			for k := 0; k < a0_length; k++ {
 				matrix[i][j] += a[i][k] * b[k][j]
 			}
 		}
