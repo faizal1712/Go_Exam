@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+const (
+	size       = 9
+	small_size = 3
+)
+
 func main() {
 	var arr = [][]int{
 		{8, 2, 7, 1, 5, 4, 3, 9, 6},
@@ -27,7 +32,7 @@ func checkLine(arr []int) bool {
 	for _, num := range arr {
 		dict[num] = dict[num] + 1
 	}
-	for i := 1; i < 10; i++ {
+	for i := 1; i <= size; i++ {
 		if dict[i] != 1 {
 			return false
 		}
@@ -36,7 +41,7 @@ func checkLine(arr []int) bool {
 }
 
 func rowscheck(arr [][]int) bool {
-	for i := 0; i < 9; i++ {
+	for i := 0; i < size; i++ {
 		if !checkLine(arr[i]) {
 			return false
 		}
@@ -45,9 +50,9 @@ func rowscheck(arr [][]int) bool {
 }
 
 func columnscheck(arr [][]int) bool {
-	for i := 0; i < 9; i++ {
-		temp := make([]int, 9)
-		for j := 0; j < 9; j++ {
+	for i := 0; i < size; i++ {
+		temp := make([]int, size)
+		for j := 0; j < size; j++ {
 			temp[j] = arr[j][i]
 		}
 		if !checkLine(temp) {
@@ -58,10 +63,10 @@ func columnscheck(arr [][]int) bool {
 }
 
 func submatrixcheck(arr [][]int) bool {
-	temp := make([]int, 9)
+	temp := make([]int, size)
 	i, j := 0, 0
-	for f := 0; f < 9; f++ {
-		j = 3 * (f % 3)
+	for f := 0; f < size; f++ {
+		j = small_size * (f % small_size)
 		temp[0] = arr[i+0][j+0]
 		temp[1] = arr[i+0][j+1]
 		temp[2] = arr[i+0][j+2]
@@ -74,8 +79,8 @@ func submatrixcheck(arr [][]int) bool {
 		if !checkLine(temp) {
 			return false
 		}
-		if f%3 == 2 {
-			i = i + 3
+		if f%small_size == (small_size - 1) {
+			i = i + small_size
 		}
 	}
 	return true
