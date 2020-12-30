@@ -24,6 +24,7 @@ func main() {
 		fmt.Println("This solution is wrong ! ")
 		return
 	}
+
 	fmt.Println("This solution is true !")
 }
 
