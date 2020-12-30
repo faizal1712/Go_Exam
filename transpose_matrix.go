@@ -13,13 +13,15 @@ func main() {
 }
 
 func transposeMatrix(arr [][]int) [][]int {
-	matrix := make([][]int, len(arr[0]))
-	for i := 0; i < len(arr[0]); i++ {
-		matrix[i] = make([]int, len(arr))
+	arr0_length := len(arr[0])
+	arr_length := len(arr)
+	matrix := make([][]int, arr0_length)
+	for i := 0; i < arr0_length; i++ {
+		matrix[i] = make([]int, arr_length)
 	}
 
-	for i := 0; i < len(arr[0]); i++ {
-		for j := 0; j < len(arr); j++ {
+	for i := 0; i < arr0_length; i++ {
+		for j := 0; j < arr_length; j++ {
 			matrix[i][j] = arr[j][i]
 		}
 	}
