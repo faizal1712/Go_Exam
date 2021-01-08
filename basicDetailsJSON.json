@@ -1,0 +1,28 @@
+{
+    "basicDetailsArray": [
+        {
+            "id": 1,
+            "name": "faizal",
+            "address": {
+                "area": "Vejalpur",
+                "country": "IND"
+            }
+        },
+        {
+            "id": 2,
+            "name": "nisarg",
+            "address": {
+                "area": "Jivrajpark",
+                "country": "US"
+            }
+        },
+        {
+            "id": 3,
+            "name": "parth",
+            "address": {
+                "area": "Satellite",
+                "country": "US"
+            }
+        }
+    ]
+}

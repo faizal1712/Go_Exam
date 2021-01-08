@@ -1,0 +1,25 @@
+{
+    "contactDetailsArray": [
+        {
+            "id": 1,
+            "contactDets": {
+                "email": "maulvifaizal@gmail.com",
+                "phone": "8488982986"
+            }
+        },
+        {
+            "id": 2,
+            "contactDets": {
+                "email": "nisargchokshi4000@gmail.com",
+                "phone": "9624904521"
+            }
+        },
+        {
+            "id": 3,
+            "contactDets": {
+                "email": "parthpv99@gmail.com",
+                "phone": "8429958754"
+            }
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "techDetailsArray": [
+        {
+            "id": 1,
+            "techDets": [
+                {
+                    "tech": "PHP",
+                    "exp": 1
+                },
+                {
+                    "tech": "Node",
+                    "exp": 0.5
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "techDets": [
+                {
+                    "tech": "JS",
+                    "exp": 0.5
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "techDets": [
+                {
+                    "tech": "Flutter",
+                    "exp": 0.7
+                },
+                {
+                    "tech": "React",
+                    "exp": 0.3
+                }
+            ]
+        }
+    ]
+}
