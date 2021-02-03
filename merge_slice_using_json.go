@@ -70,13 +70,13 @@ func main() {
 
 	basicbyteValue, _ := ioutil.ReadAll(basicjsonFile)
 
-	var basicDetailsArray basicDetsArray
-	json.Unmarshal(basicbyteValue, &basicDetailsArray)
-	// fmt.Println(basicDetailsArray)
-
 	// var result map[string]interface{}
 	// json.Unmarshal([]byte(byteValue), &result)
 	//fmt.Println(result)
+
+	var basicDetailsArray basicDetsArray
+	json.Unmarshal(basicbyteValue, &basicDetailsArray)
+	// fmt.Println(basicDetailsArray)
 
 	techjsonFile, err := os.Open("techDetailsJSON.json")
 	if err != nil {
