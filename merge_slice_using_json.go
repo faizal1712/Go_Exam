@@ -61,6 +61,11 @@ type totalDetails struct {
 
 func main() {
 
+	// emp_obj := Employee{Name:"Rachel", Age:24, Salary :344444}
+	// emp, _ := json.Marshal(emp_obj)
+	// fmt.Println(string(emp))
+	//op : {"Name":"Rachel","Age":24,"Salary":344444}
+
 	basicjsonFile, err := os.Open("basicDetailsJSON.json")
 	if err != nil {
 		fmt.Println(err)
